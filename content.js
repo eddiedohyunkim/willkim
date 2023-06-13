@@ -5,6 +5,7 @@ window.addEventListener('load', () => {
 });
   
 function viewJson(blocks){
+  console.log(blocks)
   blocks.forEach((block) => {
     if (block.image && block.image.original.url) {
       let imgTitle = block.title.split('.')[0];
