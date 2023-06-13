@@ -92,7 +92,7 @@ ol li{
 }
  .g-4{
  	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(calc(25vw - 0.5em), 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(calc(25em), 1fr));
  	grid-column-gap: 0.5em;
  }
 figure > img{
@@ -110,10 +110,6 @@ figcaption{
 iframe{
 	display: block;
 	vertical-align: top;
-}
-
-figure{
-	min-height: 200px;
 }
 
 
