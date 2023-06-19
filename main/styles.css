@@ -36,6 +36,10 @@ header{
 	flex: 1;
 }
 
+section{
+	z-index: -1;
+}
+
 
 figcaption{
 	line-height: 1;
