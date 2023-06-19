@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Will Kim</title>
+	<link rel="stylesheet" type="text/css" href="../reset.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<header class="minmax-flexbox">
+		<div class="t-cont maxflex">
+			<span class="nobreak"><a href="/" class="noline">WILL KIM</a></span>, <span class="nobreak">CREATIVE STUDIO</span>, <span class="nobreak">© 2023 WILL KIM</span>
+		</div>
+		<div class="t-cont minflex">
+			<p><a href="/information">Information</a></p>
+		</div>
+	</header>
+	<section>
+		<div class="pers-cont">
+				<div class="big-thrd-cont">
+					<div class="thrd-cont ts1">
+						<div class="thrd-inner-cont">
+							<figure class="thrd-front">
+								<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875952?h=585df290ba&background=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+								<figcaption>Main</figcaption>
+							</figure>
+							<figure class="fig-back">
+								<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875425?h=94c2b95488&background=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+								<figcaption>Teaser 1</figcaption>
+							</figure>
+						</div>
+					</div>
+					<div class="thrd-cont ts2">
+						<div class="thrd-inner-cont">
+							<figure class="thrd-front">
+								<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875477?h=ab0793dbc0&background=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+								<figcaption>Teaser 2</figcaption>
+							</figure>
+							<figure class="fig-back">
+								<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875523?h=cd2967e91f&background=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+								<figcaption>Teaser 3</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<script src="https://player.vimeo.com/api/player.js"></script>
+	<script type="text/javascript">
+	window.onload = function(){
+		handleThreeD()
+		// handleThreeDbeta()
+	}
+	function handleThreeD(){
+		let perspectives = document.querySelectorAll('.pers-cont');
+		perspectives_arr = [...perspectives];
+		perspectives_arr.forEach(perspective => {
+			console.log(perspective)
+			mouseMoveWhilstDown(
+    			perspective,
+    			function (event) { 
+    				let t = event.currentTarget;
+    				let rotating = t.querySelector('.big-thrd-cont');
+    				// let curRot = getCurrentRotation(rotating)
+    				// console.log(curRot);
+    				let rotate = map(event.clientX, 16, window.innerWidth-16, 0, 360);
+    				// let rotateX = map(event.clientY, 16, window.innerHeight-16, -90, 90);
+    				
+    				rotating.style.transform = `rotateY(${rotate}deg)`;
+    			}
+			);
+		})
+
+	}
+
+	function mouseMoveWhilstDown(target, whileMove) {
+		var endMove = function () {
+			target.removeEventListener('mousemove', whileMove);
+			target.removeEventListener('mouseup', endMove);
+		};
+
+		target.addEventListener('mousedown', function (event) {
+			event.preventDefault();
+			event.stopPropagation(); // remove if you do want it to propagate
+			target.addEventListener('mousemove', whileMove);
+			target.addEventListener('mouseup', endMove);
+		});
+	}	
+
+	function getCurrentRotation(element){
+		let curRot = element.style.transform.match(/rotateY\((\d+)(.+)\)/);
+    	if (curRot) {
+  			var [num, unit] = curRot.slice(1);
+  			console.log('num:', num, 'unit:', unit);
+  			return num;
+  			// console.log(curRot);
+		}
+		return 0;
+	}
+
+
+	function handleThreeDbeta(){
+		let perspectives = document.querySelectorAll('.pers-cont');
+		perspectives_arr = [...perspectives];
+		perspectives_arr.forEach(perspective => {
+			perspective.addEventListener('mousemove', handleMouseMove)
+		});
+    	function handleMouseMove(event) {
+    		let rotate = map(event.clientX, 16, window.innerWidth-16, 0, 360);
+    		let rotating = document.querySelector('.big-thrd-cont');
+    		rotating.style.transform = `rotateY(${rotate}deg)`;
+    	}
+	};
+	function map(value, low1, high1, low2, high2) { return Math.round( low2 + (high2 - low2) * (value - low1) / (high1 - low1) );
+	}
+</script>
+</body>
+</html>
