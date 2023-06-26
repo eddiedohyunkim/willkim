@@ -1,60 +1,51 @@
-const header = document.querySelector('header');
-
 window.onload = function(){
-	currentSection();
-	document.addEventListener("scroll", (event) => {
-		currentSection();
+	handleChoices()
+}
+function handleChoices(){
+	let allChoices = document.querySelectorAll(".choices");
+	allChoices.forEach(function(e) { 
+		e.addEventListener('click', pickone)
 	});
-}
+}	
+function pickone(e){
+	let choice = e.target;
+	let choices = e.currentTarget;
+	if(choice.classList.contains('choice')){
+		// handle button visuals
+		choices.querySelector('.active').classList.remove("active");
+		choice.classList.add("active");
 
-function currentSection(){
-	let sections = document.querySelectorAll('.section'), 
-	sections_arr = [...sections];
-	sections_arr.forEach(section => {
-		let bottom = Math.round( section.getBoundingClientRect().bottom );
-		let top = Math.round( section.getBoundingClientRect().top );
-		if(top <= 64 && 64 < bottom){
-			handleHeader(section.dataset.category, section.dataset.subcategory)
+		// handle options
+		let	options = document.getElementById(choices.dataset.attached);
+		let	option = document.getElementById(choice.dataset.attached);
+
+		let alloption = options.querySelectorAll('.option');
+		alloption.forEach(function(e){
+			if(e.classList.contains('show')) e.classList.remove('show')
+			if(e == option) e.classList.add('show')
+		})
+
+		if(option.querySelector('.choices') != null){
+			let secondChoice = option.querySelector('.active');
+			let	secondOption = document.getElementById(secondChoice.dataset.attached);
+			console.log(secondOption)
+			secondOption.classList.add('show');
 		}
-	});
-}
-
-function handleHeader(category, subcategory){
-	let navCategory = header.querySelector(`#nav-${category}`);
-	for(let each of getAllSiblings(navCategory)){
-		each.classList.add("noline");
 	}
-	navCategory.classList.remove("noline");
-
-	let navSubCategory = header.querySelector('#nav-subcategory');
-	navSubCategory.innerHTML = subcategory;
+	
 }
-
-function getAllSiblings(elem) {
-	// Setup siblings array and get the first sibling
-	var siblings = [];
-	var sibling = elem.parentNode.firstChild;
-	// Loop through each sibling and push to the array
-	while (sibling) {
-		if (sibling.nodeType === 1 && sibling !== elem) {
-			siblings.push(sibling);
-		}
-		sibling = sibling.nextSibling;
-	}
-	return siblings;
-};
 
 // Animation Performance
 let observer = new IntersectionObserver(function(entries, observer) {
 	entries.forEach(function(entry) {
 		// Pause/Play the animation
-		if (entry.isIntersecting) entry.target.style.animationPlayState = "running"
-		else entry.target.style.animationPlayState = "paused"
+		if (entry.isIntersecting) entry.target.style.animationPlayState = "running";
+		else entry.target.style.animationPlayState = "paused";
 	});
 });
 
-let variableTexts = document.querySelectorAll(".big-thrd-cont");
+let animation = document.querySelectorAll(".big-thrd-cont");
 
-variableTexts.forEach(function(el) { 
-	observer.observe(el); 
+animation.forEach(function(e) { 
+	observer.observe(e); 
 });
