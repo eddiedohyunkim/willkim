@@ -10,7 +10,7 @@
 	height: 100%;
 	transform-style: preserve-3d;
 	transform: rotateY(45deg);
-/*	animation: rotate360 15s linear infinite;*/
+	animation: rotate360 15s linear infinite;
 	position: relative;
 }
 .thrd-cont{
@@ -48,7 +48,7 @@
 iframe{
 /*	z-index: 1000;*/
 	display: block;
-/*	pointer-events: none;*/
+	pointer-events: none;
 }
 @keyframes rotate360{
 	0%{ transform: rotateY(0deg); }
