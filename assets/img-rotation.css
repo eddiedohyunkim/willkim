@@ -5,7 +5,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
 	padding: calc( var(--sp1) * 1 );
 /*	cursor: ew-resize;*/
 }	
@@ -63,7 +62,7 @@
 .thrd-inner-cont > figure{
 	position: absolute;
 	width: fit-content;
-	height: 800px;
+	height: 100%;
 	backface-visibility: hidden;
 	display: block;
 }
@@ -72,7 +71,7 @@
 /*	object-fit: contain;*/
 /*	width: 100%;*/
 	width: auto;
-	height:800px;
+	height:100%;
 	max-width: 100%;
 	max-height: 100%;
 	user-select: none;
