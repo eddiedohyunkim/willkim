@@ -29,13 +29,11 @@
 						<a href="/sasu" style="display:block;">
 							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875523?h=cd2967e91f&autoplay=1&background=1&loop=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
 						</a>
-						<!-- <figcaption>SASU Teaser 3</figcaption> -->
 					</figure>
 					<figure class="fig-back">
 						<a href="/sasu" style="display:block;">
 							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875425?h=94c2b95488&autoplay=1&background=1&loop=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
 						</a>
-						<!-- <figcaption>SASU Teaser 1</figcaption> -->
 					</figure>
 				</div>
 				<div class="thrd-cont ts2">
@@ -43,26 +41,44 @@
 						<a href="/sasu" style="display:block;">
 							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875952?h=585df290ba&autoplay=1&background=1&loop=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
 						</a>
-						<!-- <figcaption>SASU Main</figcaption> -->
 					</figure>
 					<figure class="fig-back">
 						<a href="/sasu" style="display:block;">
 							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875477?h=ab0793dbc0&autoplay=1&background=1&loop=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
 						</a>
-						<!-- <figcaption>SASU Teaser 2</figcaption> -->
 					</figure>
 				</div>
 			</div>
 		</div>
+		<!-- <div class="pers-cont">
+			<div class="big-thrd-cont">
+				<div class="thrd-cont ts1">
+					<figure class="thrd-front">
+							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875523?h=cd2967e91f&loop=1&color=dadbe0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+					</figure>
+					<figure class="fig-back">
+							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875425?h=94c2b95488&loop=1&color=dadbe0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+					</figure>
+				</div>
+				<div class="thrd-cont ts2">
+					<figure class="thrd-front">
+							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875952?h=585df290ba&loop=1&color=dadbe0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+					</figure>
+					<figure class="fig-back">
+							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/833875477?h=ab0793dbc0&loop=1&color=dadbe0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+					</figure>
+				</div>
+			</div>
+		</div> -->
 	</section>
 	<script src="https://player.vimeo.com/api/player.js"></script>
 	<script type="text/javascript">
 	window.onload = function(){
-		// handleThreeD()
+		handleThreeD()
 		// handleThreeDbeta()
 	}
 	function handleThreeD(){
-		let perspectives = document.querySelectorAll('.pers-cont');
+		let perspectives = document.querySelectorAll('.big-thrd-cont');
 		perspectives_arr = [...perspectives];
 		perspectives_arr.forEach(perspective => {
 			console.log(perspective)
@@ -76,7 +92,7 @@
     				let rotate = map(event.clientX, 16, window.innerWidth-16, 0, 360);
     				// let rotateX = map(event.clientY, 16, window.innerHeight-16, -90, 90);
     				
-    				rotating.style.transform = `rotateY(${rotate}deg)`;
+    				t.style.transform = `rotateY(${rotate}deg)`;
     			}
 			);
 		})
