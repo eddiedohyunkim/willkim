@@ -2,7 +2,7 @@
 	perspective: min(1000vh, 1000vw);
 	transform-style: preserve-3d;
 	transform: translateZ(-200vw) rotateX(-20deg);
-	height: 100vh;
+	height: min(100vh, 75vw);
 }	
 
 .big-thrd-cont{
