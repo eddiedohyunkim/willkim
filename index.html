@@ -58,8 +58,8 @@
 				<a href="/" class="noline txt-ful">WILL KIM, CREATIVE STUDIO © 2023 WILL KIM</a>
 				<a href="/" class="noline txt-min">WILL KIM, CREATIVE STUDIO</a>
 				<span>/</span>
-				<a href="/soomin" class="noline active txt-ful">SOOMIN, 2021</a>
-				<a href="/soomin" class="noline active txt-min">SOOMIN</a>
+				<a href="/mong" class="noline active txt-ful">梦(mong), 2021</a>
+				<a href="/mong" class="noline active txt-min">梦(mong)</a>
 			</h2>
 			<a href="/info" class="noline t-box-w">Info</a>
 		</header>
@@ -67,24 +67,24 @@
 			<div class="big-thrd-cont">
 				<div class="thrd-cont ts1">
 					<figure class="thrd-front">
-						<a href="/soomin" style="display:block;">
+						<a href="/mong" style="display:block;">
 							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/853533508?h=5f21a6c9ce&autoplay=1&background=1&loop=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
 						</a>
 					</figure>
 					<figure class="fig-back">
-						<a href="/soomin" style="display:block;">
+						<a href="/mong" style="display:block;">
 							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/853531136?h=597bf08978&autoplay=1&background=1&loop=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
 						</a>
 					</figure>
 				</div>
 				<div class="thrd-cont ts2">
 					<figure class="thrd-front">
-						<a href="/soomin" style="display:block;"> 
+						<a href="/mong" style="display:block;"> 
 							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/853523945?h=63f7880fe5&autoplay=1&background=1&loop=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
 						</a>
 					</figure>
 					<figure class="fig-back">
-						<a href="/soomin" style="display:block;">
+						<a href="/mong" style="display:block;">
 							<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/853565240?h=4b82e6ed53&autoplay=1&background=1&loop=1&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
 						</a>
 					</figure>
@@ -99,6 +99,23 @@
 		handleThreeD()
 		// handleThreeDbeta()
 	}
+
+	// Animation Performance
+	let observer = new IntersectionObserver(function(entries, observer) {
+		entries.forEach(function(entry) {
+			// Pause/Play the animation
+			if (entry.isIntersecting) entry.target.style.animationPlayState = "running";
+			else entry.target.style.animationPlayState = "paused";
+		});
+	});
+	
+	let animation = document.querySelectorAll(".big-thrd-cont");
+	
+	animation.forEach(function(e) { 
+		observer.observe(e); 
+	});
+
+
 	function handleThreeD(){
 		let perspectives = document.querySelectorAll('.big-thrd-cont');
 		perspectives_arr = [...perspectives];
