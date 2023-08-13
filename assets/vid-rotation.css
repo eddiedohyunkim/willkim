@@ -1,3 +1,7 @@
+section{
+	margin-bottom: min(25vw, 25vh);
+}
+
 .pers-cont{ 
 	perspective: min(1000vh, 1000vw);
 	transform-style: preserve-3d;
