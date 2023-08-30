@@ -29,10 +29,16 @@ header{
 /*	width: fit-content;*/
 }
 .txt-min{ display:none; }
-@media all and (max-width: 36rem) { 
+.txt-min-min{display: none;}
+@media all and (max-width: 42rem) { 
 /*	header{ width: 100vw; }*/
 	header .txt-min{ display:block; }
 	header .txt-ful{ display:none; }
+}
+@media all and (max-width: 24rem) { 
+/*	header{ width: 100vw; }*/
+	header:has(.txt-min-min) .txt-min-min{ display:block; }
+	header:has(.txt-min-min) .txt-ful, header:has(.txt-min-min) .txt-min { display:none; }
 }
 h3{
 	top: var(--sp1);
